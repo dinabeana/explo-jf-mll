@@ -1,0 +1,303 @@
+/* palette
+
+  background: #000000
+  foreground: #f3f3eb, rgb(243,243,235)
+  button border: #b95b31
+  error messages: #f1b800
+  iframe backround (matches label background): #eeeeee
+
+*/
+
+/* layout */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  height: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.header, .footer, .content {
+  width: 100%;
+}
+
+.header, .footer {
+  background-color: black;
+  z-index: 3;
+  padding: 0.65rem;
+}
+
+.header {
+  padding-top: 0.8rem; // visual shim
+}
+
+.footer {
+  text-align: center;
+}
+
+/*.content {
+  margin-top: -40px;
+}*/
+
+.content, .iframe-container {
+  display: flex;
+  flex: 0 1 auto;
+  width: 100%;
+  height: 100%;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  overflow: hidden;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+}
+
+#inputOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+}
+
+.overlay-footer {
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+
+.overlay-buttons {
+  height: 4.7rem;
+  width: 100%;
+  text-align: center;
+}
+
+.overlay-buttons img {
+  display: inline-block;
+  height: 100%;
+  max-height: 100%;
+  padding: 0.8rem;
+  padding-bottom: 1.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+form#languageForm-welcome > .language-buttons-container {
+  text-align: center;
+}
+
+form#languageForm-app > .language-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  display: block;
+}
+
+.main {
+}
+
+.full-screen {
+  width: 100%;
+  height: 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.screen, .hidden {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.screen.active {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button::before {
+  display: inline-block;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  float: left !important;
+  background-color: #f3f3eb;
+  border: 0.5rem solid #b95b31;
+  border-radius: 50%;
+  margin-right: 0.525rem;
+  margin-top: 0.2rem;
+}
+
+.iframe-container {
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+  background-color: #eeeeee;
+}
+
+#qr-canvas {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#canvas-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.error-label-no-qr {
+  width: 100%;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.error-label-invalid-qr-code {
+  width: 100%;
+  width: 100vw;
+}
+
+/* typography and typographical alignment */
+
+body {
+  font: 1.3rem/1.3 "ff-unit-web", Arial, sans-serif;
+  color: #f3f3eb;
+  letter-spacing: 0.1rem;
+  font-kerning: normal;
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* for chinese character alignment on welcome screen */
+.vert-adjust {
+  padding-top: 0.6rem;
+}
+
+/*.button {
+  color: #f3f3eb;
+  font: 1.5rem;
+  letter-spacing: 0.05rem;
+  line-height: 3rem;
+}*/
+
+label.welcome-languageButton {
+  font: 2.65rem/2 "ff-unit-web", Arial, sans-serif; /* was 2.55rem/2 */
+  letter-spacing: 0.1rem;
+}
+
+label.app-languageButton, .button {
+  font-size: 1.5rem;
+  letter-spacing: 0.05rem;
+  padding: 0 0.8rem;
+}
+
+label.app-languageButton {
+  color: rgba(243,243,235, 0.6);
+}
+
+#languageForm-welcome-zh-hant-languageButton+label.welcome-languageButton {
+  margin-top: 0.4rem; /* visual shim for chinese characters */
+}
+
+.button {
+  color: #f3f3eb;
+}
+
+.error-label-invalid-qr-code, .error-label-no-qr {
+  color: #b95b31;
+  text-align: center;
+  padding: 1rem;
+}
+
+.error-label-invalid-qr-code {
+  padding-bottom: 1.5rem;
+}
+
+/* language form elements */
+
+input[type="radio"].language-button {
+  display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+input:checked + label,
+  .en .languageForm_app-en-languageButton,
+  .sp .languageForm_app-sp-languageButton,
+  .zh-Hant .languageForm_app-zh-Hant-languageButton {
+    color: #f3f3eb;
+}
+
+.input-overlay .show-when-input-overlay{
+  display: block;
+}
+
+/* error fade animation */
+
+.fade {
+  opacity: 0;
+  animation: fade 7s;
+  -webkit-animation: fade 7s;
+}
+
+@keyframes fade {
+   0% {opacity: 1;}
+   70% {opacity: 1;}
+   100% {opacity: 0;}
+}
+
+@-webkit-keyframes fade {
+   0% {opacity: 1;}
+   70% {opacity: 1;}
+   100% {opacity: 0;}
+}

@@ -1,0 +1,37 @@
+{
+  "contentURLPrefix": "https://www.exploratorium.edu/mll/",
+  "numExhibitIdDigits": 4,
+  "testURLTimeout": 30000,
+  "clickEventForTimeout": ["touchstart"],
+  "inactivityTimeout": 1800000,
+  "qrCanvasReadInterval": 100,
+  "qrMisreadAllowance": 5,
+  "languages": ["english", "espa&ntilde;ol", "中文"],
+  "languageAbbrs": ["en", "es", "zh-hant"],
+  "introPage": {
+    "include": true,
+    "exhibitId": 0
+  },
+  "translations": {
+    "htmlPageTitle": {
+      "en": "Exploratorium Trilingual Labels",
+      "es": "Trilingües del Exploratorium",
+      "zh-hant": "Exploratorium 探索館三語標籤"
+    },
+    "goButtonLabel": {
+      "en": "next",
+      "es": "siguiente",
+      "zh-hant": "下&mdash;個掃描"
+    },
+    "verificationMessage-no-qr": {
+      "en": "Device cannot read QR codes from the browser.",
+      "es": "Dispositivo no puede leer QR desde el navegador.",
+      "zh-hant": "這部移動設備不能透過瀏覽器讀取二維碼。"
+    },
+    "verificationMessage-invalid-code": {
+      "en": "Not a valid QR code.",
+      "es": "No es un código QR válido.",
+      "zh-hant": "不是有效的二維碼。"
+    }
+  }
+}

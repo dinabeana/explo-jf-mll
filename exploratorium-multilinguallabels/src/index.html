@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exploratorium On-line Labels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="//use.typekit.net/zky1mem.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <section class="main full-screen">
+    <!-- this main section holds two subsections which are positioned on top of each other: welcome-screen and app-screen -->
+    <section class="welcome-screen screen full-screen">
+      <form id="languageForm-welcome" action="/"> <!-- action attribute is necessary for the form to be valid -->
+        <!-- js injects welcome language choice form here -->
+      </form>
+      <div data-translation-string="verificationMessage-no-qr" id="qrReaderError" class="error-label-no-qr transparent">This mobile device cannot read QR codes from the browser. Please borrow a device from the Information Desk.</div>
+    </section>
+    <section class="app-screen screen full-screen">
+      <header class="header">
+        <form id="languageForm-app" action="/">
+          <!-- js injects app language choice form here -->
+        </form>
+      </header>
+      <section class="content">
+        <section id="mllPage" class="iframe-container"> <!-- external web pages are loaded into here -->
+        </section>
+      </section>
+      <footer class="footer">
+        <a data-translation-string="goButtonLabel" href="#inputOverlay" id="goButton" class="button"></a>
+      </footer>
+      <section id="inputOverlay" class="show-when-input-overlay hidden"> <!-- this overlay alternates with the iframe and holds the qr scanning screen -->
+        <canvas id="qr-canvas" width="360" height="360"></canvas><canvas id="canvas-mask"></canvas> <!-- the qr scanning screen which receives the video stream from the camera -->
+        <div class="overlay-footer">
+          <div data-translation-string="verificationMessage-invalid-code" id="invalidQRCode" class="error-label-invalid-qr-code transparent">Not a valid QR code.</div>
+          <div class="overlay-buttons"><img src="images/icon_reload.svg" id="reload"><img src="images/icon_help.svg" id="help"></div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <script src="js/vendors/llqrcode.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
